@@ -1,3 +1,0 @@
-/home/arturo/Repositories/meteorengine/CMakeFiles/MeteorEngine.dir
-/home/arturo/Repositories/meteorengine/CMakeFiles/edit_cache.dir
-/home/arturo/Repositories/meteorengine/CMakeFiles/rebuild_cache.dir
