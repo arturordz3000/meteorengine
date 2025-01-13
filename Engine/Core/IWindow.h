@@ -1,5 +1,6 @@
 #pragma once
 
+#include <memory>
 #include <string>
 #include "Base/Declarations.h"
 
@@ -15,11 +16,10 @@ namespace Meteor {
 
     class IWindow {
         public:
-            static IWindow Create(const WindowProperties& properties = WindowProperties());
+            static std::shared_ptr<IWindow> Create(const WindowProperties& properties = WindowProperties());
+            virtual void* GetNativeWindow() = 0;
             virtual int GetWidth() = 0;
             virtual int GetHeight() = 0;
             virtual void SetEventCallback(const EventCallback& eventCallback) = 0;
-            virtual ~IWindow() = 0;
-            
     };
 }

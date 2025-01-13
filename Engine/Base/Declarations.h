@@ -1,7 +1,7 @@
 #pragma once
 
 #include <functional>
-#include "Events/Event.h"
+#include "Engine/Events/Event.h"
 
 namespace Meteor {
     using EventCallback = std::function<void(Event&)>;
