@@ -1,5 +1,6 @@
 #pragma once
 
+#include <memory>
 #include "Engine/Events/IEvent.h"
 #include "Engine/Core/IWindow.h"
 
@@ -10,11 +11,14 @@ namespace Meteor {
             virtual ~Application();
 
             static Application& Get() { return *s_Instance; }
-            void OnEvent(const IEvent& event) const;
+            bool IsRunning() { return m_IsRunning; }
+            void OnEvent(const IEvent& event);
             void Close();
             IWindow& GetWindow() const;
 
         private:
             static Application* s_Instance;
+            std::shared_ptr<IWindow> m_Window;
+            bool m_IsRunning;
     };
 }
