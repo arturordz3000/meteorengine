@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Engine/Events/Event.h"
+#include "Engine/Events/IEvent.h"
 #include "Engine/Core/IWindow.h"
 
 namespace Meteor {
@@ -10,9 +10,9 @@ namespace Meteor {
             virtual ~Application();
 
             static Application& Get() { return *s_Instance; }
-            void OnEvent(const Event& event);
+            void OnEvent(const IEvent& event) const;
             void Close();
-            IWindow& GetWindow();
+            IWindow& GetWindow() const;
 
         private:
             static Application* s_Instance;

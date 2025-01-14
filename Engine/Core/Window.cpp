@@ -3,6 +3,8 @@
 #include <cassert>
 #include <iostream>
 #include "Engine/Core/Window.h"
+#include "Engine/Events/KeyPressedEvent.h"
+#include "Engine/Events/KeyReleasedEvent.h"
 
 namespace Meteor {
     unsigned int s_WindowCount = 0;
@@ -19,15 +21,19 @@ namespace Meteor {
         Shutdown();
     }
 
-    void* Window::GetNativeWindow() {
+    void* Window::GetNativeWindow() const {
         return m_NativeWindow;
     }
 
-    int Window::GetWidth() {
+    std::string Window::GetTitle() const {
+        return m_Title;
+    }
+
+    int Window::GetWidth() const {
         return m_Width;
     }
 
-    int Window::GetHeight() {
+    int Window::GetHeight() const {
         return m_Height;
     }
 
@@ -45,6 +51,7 @@ namespace Meteor {
         glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
         m_NativeWindow = glfwCreateWindow(m_Width, m_Height, m_Title.c_str(), nullptr, nullptr);
+
         if (!m_NativeWindow) {
             std::cerr << "Window with ID " << s_WindowCount + 1 << " could not be initialized";
             return;
@@ -53,13 +60,48 @@ namespace Meteor {
         s_WindowCount++;
 
         glfwMakeContextCurrent(m_NativeWindow);
-
         glViewport(0, 0, m_Width, m_Height);
+
         glfwSetFramebufferSizeCallback(m_NativeWindow, [](GLFWwindow* window, int width, int height) {
             glViewport(0, 0, width, height);
         });
 
+        glfwSetWindowUserPointer(m_NativeWindow, &m_EventCallback);
 
+        glfwSetKeyCallback(m_NativeWindow, [](GLFWwindow* window, int key, int scancode, int action, int mods)
+		{
+			EventCallback& eventCallback = *(EventCallback*)glfwGetWindowUserPointer(window);
+
+			switch (action)
+			{
+				case GLFW_PRESS:
+				{
+					KeyPressedEvent event(key);
+					eventCallback(event);
+					break;
+				}
+				case GLFW_RELEASE:
+				{
+					KeyReleasedEvent event(key);
+					eventCallback(event);
+					break;
+				}
+				case GLFW_REPEAT:
+				{
+					KeyPressedEvent event(key);
+					eventCallback(event);
+					break;
+				}
+			}
+		});
+    }
+
+    void Window::OnUpdate() {
+        glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+        glClear(GL_COLOR_BUFFER_BIT);
+
+        glfwSwapBuffers(m_NativeWindow);
+        glfwPollEvents();
     }
 
     void Window::Shutdown() {

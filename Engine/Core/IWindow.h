@@ -17,9 +17,11 @@ namespace Meteor {
     class IWindow {
         public:
             static std::shared_ptr<IWindow> Create(const WindowProperties& properties = WindowProperties());
-            virtual void* GetNativeWindow() = 0;
-            virtual int GetWidth() = 0;
-            virtual int GetHeight() = 0;
+            virtual void* GetNativeWindow() const = 0;
+            virtual std::string GetTitle() const = 0;
+            virtual int GetWidth() const = 0;
+            virtual int GetHeight() const = 0;
             virtual void SetEventCallback(const EventCallback& eventCallback) = 0;
+            virtual void OnUpdate() = 0;
     };
 }

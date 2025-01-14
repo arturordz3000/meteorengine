@@ -6,10 +6,12 @@
 namespace Meteor {
     class Window : IWindow {
         public:
-            virtual void* GetNativeWindow() override;
-            virtual int GetWidth() override;
-            virtual int GetHeight() override;
+            virtual void* GetNativeWindow() const override;
+            virtual std::string GetTitle() const override;
+            virtual int GetWidth() const override;
+            virtual int GetHeight() const override;
             virtual void SetEventCallback(const EventCallback& eventCallback) override;
+            virtual void OnUpdate() override;
             Window(const std::string& title, const int width, const int height);
             ~Window();  
         private:

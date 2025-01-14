@@ -9,7 +9,7 @@ namespace Meteor {
 
     }
 
-    void Application::OnEvent(const Event& event) {
+    void Application::OnEvent(const IEvent& event) const {
 
     }
 
@@ -17,7 +17,7 @@ namespace Meteor {
 
     }
 
-    IWindow& Application::GetWindow() {
+    IWindow& Application::GetWindow() const {
 
     }
 }
