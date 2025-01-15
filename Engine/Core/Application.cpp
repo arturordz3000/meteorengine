@@ -1,7 +1,7 @@
 #include <any>
 #include <GLFW/glfw3.h>
-#include "Engine/Core/Application.h"
-#include "Engine/Events/KeyReleasedEvent.h"
+#include "Core/Application.h"
+#include "Events/KeyReleasedEvent.h"
 
 namespace Meteor {
     Application::Application() {

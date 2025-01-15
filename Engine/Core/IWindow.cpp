@@ -1,5 +1,5 @@
-#include "Engine/Core/IWindow.h"
-#include "Engine/Core/Window.h"
+#include "Core/IWindow.h"
+#include "Core/Window.h"
 
 namespace Meteor {
     std::shared_ptr<IWindow> IWindow::Create(const WindowProperties& properties) {

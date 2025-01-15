@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Engine/Events/IEvent.h"
+#include "Events/IEvent.h"
 
 namespace Meteor {
     class KeyEvent : public IEvent {

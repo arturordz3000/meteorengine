@@ -1,7 +1,7 @@
 #pragma once
 
 #include <string>
-#include "Engine/Core/IWindow.h"
+#include "Core/IWindow.h"
 
 namespace Meteor {
     class Window : IWindow {

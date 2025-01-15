@@ -1,8 +1,8 @@
 #pragma once
 
 #include <memory>
-#include "Engine/Events/IEvent.h"
-#include "Engine/Core/IWindow.h"
+#include "Events/IEvent.h"
+#include "Core/IWindow.h"
 
 namespace Meteor {
     class Application {

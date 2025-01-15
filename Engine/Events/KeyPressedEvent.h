@@ -1,7 +1,7 @@
 #pragma once
 
-#include "Engine/Events/IEvent.h"
-#include "Engine/Events/KeyEvent.h"
+#include "Events/IEvent.h"
+#include "Events/KeyEvent.h"
 
 namespace Meteor {
     class KeyPressedEvent : public KeyEvent {

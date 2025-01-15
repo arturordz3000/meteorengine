@@ -2,9 +2,9 @@
 #include <GLFW/glfw3.h>
 #include <cassert>
 #include <iostream>
-#include "Engine/Core/Window.h"
-#include "Engine/Events/KeyPressedEvent.h"
-#include "Engine/Events/KeyReleasedEvent.h"
+#include "Core/Window.h"
+#include "Events/KeyPressedEvent.h"
+#include "Events/KeyReleasedEvent.h"
 
 namespace Meteor {
     unsigned int s_WindowCount = 0;

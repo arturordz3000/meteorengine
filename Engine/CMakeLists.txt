@@ -18,9 +18,7 @@ add_library(Engine STATIC
 )
 
 target_include_directories(Engine PUBLIC
-    ${CMAKE_CURRENT_SOURCE_DIR}/Base
-    ${CMAKE_CURRENT_SOURCE_DIR}/Core
-    ${CMAKE_CURRENT_SOURCE_DIR}/Events
+    ${CMAKE_CURRENT_SOURCE_DIR}
 )
 
 target_link_libraries(Engine OpenGL::GL GLEW::GLEW glfw)
