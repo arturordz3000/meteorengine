@@ -12,7 +12,7 @@ namespace Meteor {
             
             KeyEvent(const EventType eventType, const std::string eventName, const int keyCode)
                 : m_EventType(eventType), m_EventName(eventName), m_KeyCode(keyCode) {}
-            ~KeyEvent();
+            ~KeyEvent() {}
 
         private:
             EventType m_EventType;

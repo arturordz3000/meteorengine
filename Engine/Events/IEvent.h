@@ -14,6 +14,5 @@ namespace Meteor {
             virtual EventType GetType() const = 0;
             virtual std::string GetName() const = 0;
             virtual std::any GetData() const = 0;
-            virtual ~IEvent() = 0;
     };
 }

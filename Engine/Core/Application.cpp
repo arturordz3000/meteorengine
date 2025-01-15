@@ -4,6 +4,8 @@
 #include "Events/KeyReleasedEvent.h"
 
 namespace Meteor {
+    Application* Application::s_Instance = nullptr;
+
     Application::Application() {
         m_IsRunning = true;
         m_Window = IWindow::Create();
