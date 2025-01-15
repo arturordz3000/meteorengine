@@ -25,10 +25,10 @@ namespace Meteor {
     }
 
     void Application::OnEvent(const IEvent& event) {
+        int keyCode = std::any_cast<int>(event.GetData());
+
         switch (event.GetType()) {
             case EventType::KeyReleased:
-                int keyCode = std::any_cast<int>(event.GetData());
-
                 if (keyCode == GLFW_KEY_ESCAPE) {
                     Close();
                 }

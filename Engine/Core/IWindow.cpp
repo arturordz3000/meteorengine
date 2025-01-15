@@ -7,6 +7,6 @@ namespace Meteor {
         int width = properties.m_Width;
         int height = properties.m_Height;
 
-        return std::make_shared<IWindow>(new Window(title, width, height));
+        return std::make_shared<Window>(title, width, height);
     }
 }

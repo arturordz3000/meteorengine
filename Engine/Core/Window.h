@@ -1,10 +1,11 @@
 #pragma once
 
 #include <string>
+#include <GLFW/glfw3.h>
 #include "Core/IWindow.h"
 
 namespace Meteor {
-    class Window : IWindow {
+    class Window : public IWindow {
         public:
             virtual void* GetNativeWindow() const override;
             virtual std::string GetTitle() const override;
