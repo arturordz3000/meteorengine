@@ -12,6 +12,7 @@ namespace Meteor {
 
             static Application& Get() { return *s_Instance; }
             bool IsRunning() { return m_IsRunning; }
+            void Run();
             void OnEvent(const IEvent& event);
             void Close();
             IWindow& GetWindow() const;

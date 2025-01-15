@@ -10,15 +10,22 @@ namespace Meteor {
 
         std::function<void(IEvent&)> boundOnEvent = std::bind(&Application::OnEvent, this, std::placeholders::_1);
         m_Window->SetEventCallback(boundOnEvent);
+
+        s_Instance = this;
     }
 
     Application::~Application() {
         Close();
     }
 
+    void Application::Run() {
+        while (IsRunning()) {
+            m_Window->OnUpdate();
+        }
+    }
+
     void Application::OnEvent(const IEvent& event) {
-        switch (event.GetType())
-        {
+        switch (event.GetType()) {
             case EventType::KeyReleased:
                 int keyCode = std::any_cast<int>(event.GetData());
 
