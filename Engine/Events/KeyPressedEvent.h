@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Events/IEvent.h"
+#include "Events/AbstractEvent.h"
 #include "Events/KeyEvent.h"
 
 namespace Meteor {

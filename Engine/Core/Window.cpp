@@ -5,6 +5,7 @@
 #include "Core/Window.h"
 #include "Events/KeyPressedEvent.h"
 #include "Events/KeyReleasedEvent.h"
+#include "Events/WindowClosedEvent.h"
 
 namespace Meteor {
     unsigned int s_WindowCount = 0;
@@ -94,6 +95,13 @@ namespace Meteor {
 				}
 			}
 		});
+
+        glfwSetWindowCloseCallback(m_NativeWindow, [](GLFWwindow* window) {
+            EventCallback& eventCallback = *(EventCallback*)glfwGetWindowUserPointer(window);
+
+            WindowClosedEvent event(window);
+            eventCallback(event);
+        });
     }
 
     void Window::OnUpdate() {

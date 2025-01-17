@@ -11,7 +11,7 @@ add_library(Engine STATIC
     Core/IWindow.h
     Core/Window.cpp
     Core/Window.h
-    Events/IEvent.h
+    Events/AbstractEvent.h
     Events/KeyEvent.h
     Events/KeyPressedEvent.h
     Events/KeyReleasedEvent.h

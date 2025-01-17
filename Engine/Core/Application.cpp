@@ -10,7 +10,7 @@ namespace Meteor {
         m_IsRunning = true;
         m_Window = IWindow::Create();
 
-        std::function<void(IEvent&)> boundOnEvent = std::bind(&Application::OnEvent, this, std::placeholders::_1);
+        std::function<void(AbstractEvent&)> boundOnEvent = std::bind(&Application::OnEvent, this, std::placeholders::_1);
         m_Window->SetEventCallback(boundOnEvent);
 
         s_Instance = this;
@@ -26,20 +26,31 @@ namespace Meteor {
         }
     }
 
-    void Application::OnEvent(const IEvent& event) {
-        int keyCode = std::any_cast<int>(event.GetData());
-
+    void Application::OnEvent(const AbstractEvent& event) {
         switch (event.GetType()) {
             case EventType::KeyReleased:
-                if (keyCode == GLFW_KEY_ESCAPE) {
-                    Close();
-                }
+                handleKeyEvent(event);
+                break;
 
+            case EventType::WindowClosed:
+                handleWindowClosedEvent(event);
                 break;
             
             default:
                 break;
         }
+    }
+
+    void Application::handleKeyEvent(const AbstractEvent& event) {
+        int keyCode = std::any_cast<int>(event.GetData());
+
+        if (keyCode == GLFW_KEY_ESCAPE) {
+            Close();
+        }
+    }
+
+    void Application::handleWindowClosedEvent(const AbstractEvent& event) {
+        Close();
     }
 
     void Application::Close() {

@@ -1,7 +1,7 @@
 #pragma once
 
 #include <memory>
-#include "Events/IEvent.h"
+#include "Events/AbstractEvent.h"
 #include "Core/IWindow.h"
 
 namespace Meteor {
@@ -13,7 +13,7 @@ namespace Meteor {
             static Application& Get() { return *s_Instance; }
             bool IsRunning() { return m_IsRunning; }
             void Run();
-            void OnEvent(const IEvent& event);
+            void OnEvent(const AbstractEvent& event);
             void Close();
             IWindow& GetWindow() const;
 
@@ -21,5 +21,8 @@ namespace Meteor {
             static Application* s_Instance;
             std::shared_ptr<IWindow> m_Window;
             bool m_IsRunning;
+
+            void handleKeyEvent(const AbstractEvent& event);
+            void handleWindowClosedEvent(const AbstractEvent& event);
     };
 }
