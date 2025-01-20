@@ -50,7 +50,11 @@ namespace Meteor {
     }
 
     void Application::handleWindowClosedEvent(const AbstractEvent& event) {
-        Close();
+        GLFWwindow* window = std::any_cast<GLFWwindow*>(event.GetData());
+
+        if (window == m_Window->GetNativeWindow()) {
+            Close();
+        }
     }
 
     void Application::Close() {
