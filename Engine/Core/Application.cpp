@@ -5,6 +5,7 @@
 
 namespace Meteor {
     Application* Application::s_Instance = nullptr;
+    u_int16_t Application::s_NextLayerId = 0;
 
     Application::Application() {
         m_IsRunning = true;
@@ -23,6 +24,10 @@ namespace Meteor {
     void Application::Run() {
         while (IsRunning()) {
             m_Window->OnUpdate();
+
+            for (auto& [layerId, layer] : m_ApplicationLayers) {
+                layer->OnUpdate(0);
+            }
         }
     }
 
@@ -39,6 +44,29 @@ namespace Meteor {
             default:
                 break;
         }
+
+        for (auto& [layerId, layer] : m_ApplicationLayers) {
+            layer->OnEvent(event);
+        }
+    }
+
+    u_int16_t Application::AddApplicationLayer(IApplicationLayer* layer) {
+        m_ApplicationLayers[++s_NextLayerId] = layer;
+        layer->OnInitialize();
+
+        return s_NextLayerId;
+    }
+
+    bool Application::RemoveApplicationLayer(const u_int16_t layerId) {
+        if (m_ApplicationLayers.count(layerId) == 0) {
+            return false;
+        }
+
+        IApplicationLayer* layer = m_ApplicationLayers[layerId];
+        layer->OnFinalize();
+        delete layer;
+
+        return true;
     }
 
     void Application::handleKeyEvent(const AbstractEvent& event) {
