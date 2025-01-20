@@ -11,10 +11,18 @@ add_library(Engine STATIC
     Core/IWindow.h
     Core/Window.cpp
     Core/Window.h
+    Core/IApplicationLayer.h
     Events/AbstractEvent.h
     Events/KeyEvent.h
     Events/KeyPressedEvent.h
     Events/KeyReleasedEvent.h
+    Logger/ILogger.h
+    Logger/Logger.h
+    Logger/Logger.cpp
+    Logger/ConsoleLogger.h
+    Logger/ConsoleLogger.cpp
+    Utils/TimeUtils.h
+    Utils/TimeUtils.cpp
 )
 
 target_include_directories(Engine PUBLIC

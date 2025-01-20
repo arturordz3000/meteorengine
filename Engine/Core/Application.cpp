@@ -2,6 +2,7 @@
 #include <GLFW/glfw3.h>
 #include "Core/Application.h"
 #include "Events/KeyReleasedEvent.h"
+#include "Logger/Logger.h"
 
 namespace Meteor {
     Application* Application::s_Instance = nullptr;
@@ -22,6 +23,8 @@ namespace Meteor {
     }
 
     void Application::Run() {
+        Logger::GetInstance().Info("Starting application...");
+        
         while (IsRunning()) {
             m_Window->OnUpdate();
 
