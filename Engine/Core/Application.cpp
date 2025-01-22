@@ -1,5 +1,6 @@
 #include <any>
 #include <GLFW/glfw3.h>
+#include <cassert>
 #include "Core/Application.h"
 #include "Events/KeyReleasedEvent.h"
 #include "Logger/Logger.h"
@@ -9,6 +10,8 @@ namespace Meteor {
     u_int16_t Application::s_NextLayerId = 0;
 
     Application::Application() {
+        assert(!s_Instance && "Application already exists");
+
         m_IsRunning = true;
         m_Window = IWindow::Create();
 
