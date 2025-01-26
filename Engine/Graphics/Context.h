@@ -1,3 +1,5 @@
+#pragma once
+
 #include "Graphics/IContext.h"
 #include "Core/IWindow.h"
 
