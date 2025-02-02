@@ -36,7 +36,7 @@ namespace Meteor {
         return textures;    
     }
 
-    void Material::ApplyToShader(const IShader& shader) const {
+    void Material::ApplyToShader(IShader& shader) {
         for (const auto& [name, value] : scalars) {
             shader.SetUniform("material." + name, value);
         }
@@ -45,8 +45,9 @@ namespace Meteor {
             shader.SetUniform("material." + name, value);
         }
 
+        unsigned int textureUnit = 0;
         for (const auto& texture : textures) {
-            shader.BindTexture(texture);
+            shader.BindTexture(texture, textureUnit++);
         }
     }
 }

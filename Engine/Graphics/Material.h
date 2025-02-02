@@ -19,7 +19,7 @@ namespace Meteor {
             void AddTexture(const Texture& texture);
             const std::vector<Texture>& GetTextures() const;
 
-            void ApplyToShader(const IShader& shader) const;
+            void ApplyToShader(IShader& shader);
 
         private:
             std::unordered_map<std::string, float> scalars;
