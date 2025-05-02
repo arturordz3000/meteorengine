@@ -16,6 +16,14 @@ add_library(Engine STATIC
     Events/KeyEvent.h
     Events/KeyPressedEvent.h
     Events/KeyReleasedEvent.h
+    Graphics/AbstractRenderer
+    Graphics/Context.h
+    Graphics/Context.cpp
+    Graphics/ICamera.h
+    Graphics/IContext.h
+    Graphics/IShader.h
+    Graphics/OpenGlContext.h
+    Graphics/OpenGlContext.cpp
     Logger/ILogger.h
     Logger/Logger.h
     Logger/Logger.cpp
