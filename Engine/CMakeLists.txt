@@ -21,7 +21,8 @@ add_library(Engine STATIC
     Graphics/Context.cpp
     Graphics/ICamera.h
     Graphics/IContext.h
-    Graphics/IShader.h
+    Graphics/OpenGlRenderer.h
+    Graphics/OpenGlRenderer.cpp
     Graphics/OpenGlContext.h
     Graphics/OpenGlContext.cpp
     Logger/ILogger.h

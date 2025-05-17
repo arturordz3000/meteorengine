@@ -6,6 +6,6 @@
 namespace Meteor {
     class Context {
         public:
-            static IContext& CreateOpenGlContext(IWindow& window);
+            static std::shared_ptr<IContext> CreateOpenGlContext(IWindow& window);
     };
 }

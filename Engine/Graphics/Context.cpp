@@ -2,8 +2,8 @@
 #include "Graphics/OpenGlContext.h"
 
 namespace Meteor {
-    IContext& Context::CreateOpenGlContext(IWindow& window) {
-        static OpenGlContext openGlContext(window);
+    std::shared_ptr<IContext> Context::CreateOpenGlContext(IWindow& window) {
+        auto openGlContext = std::make_shared<OpenGlContext>(window);
         return openGlContext;
     }
 }

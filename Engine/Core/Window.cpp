@@ -6,6 +6,7 @@
 #include "Events/KeyPressedEvent.h"
 #include "Events/KeyReleasedEvent.h"
 #include "Events/WindowClosedEvent.h"
+#include "Graphics/Context.h"
 
 namespace Meteor {
     unsigned int s_WindowCount = 0;
@@ -43,25 +44,8 @@ namespace Meteor {
     }
 
     void Window::Initialize() {
-        if (s_WindowCount == 0) {
-            assert(glfwInit() && "Failed to initialize GLFW");
-        }
-
-        glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-        glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-        glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-
-        m_NativeWindow = glfwCreateWindow(m_Width, m_Height, m_Title.c_str(), nullptr, nullptr);
-
-        if (!m_NativeWindow) {
-            std::cerr << "Window with ID " << s_WindowCount + 1 << " could not be initialized";
-            return;
-        }
-
-        s_WindowCount++;
-
-        glfwMakeContextCurrent(m_NativeWindow);
-        glViewport(0, 0, m_Width, m_Height);
+        auto context = Context::CreateOpenGlContext(*this);
+        this->m_NativeWindow = (GLFWwindow*)context->GetNativeWindow();
 
         glfwSetFramebufferSizeCallback(m_NativeWindow, [](GLFWwindow* window, int width, int height) {
             glViewport(0, 0, width, height);
