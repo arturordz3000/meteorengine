@@ -47,10 +47,6 @@ namespace Meteor {
         auto context = Context::CreateOpenGlContext(*this);
         this->m_NativeWindow = (GLFWwindow*)context->GetNativeWindow();
 
-        glfwSetFramebufferSizeCallback(m_NativeWindow, [](GLFWwindow* window, int width, int height) {
-            glViewport(0, 0, width, height);
-        });
-
         glfwSetWindowUserPointer(m_NativeWindow, &m_EventCallback);
 
         glfwSetKeyCallback(m_NativeWindow, [](GLFWwindow* window, int key, int scancode, int action, int mods)

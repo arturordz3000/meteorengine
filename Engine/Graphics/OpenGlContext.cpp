@@ -24,6 +24,10 @@ namespace Meteor {
 
         glfwMakeContextCurrent(this->m_NativeWindow);
         glViewport(0, 0, width, height);
+
+        glfwSetFramebufferSizeCallback(m_NativeWindow, [](GLFWwindow* window, int width, int height) {
+            glViewport(0, 0, width, height);
+        });
     }
 
     void* OpenGlContext::GetNativeWindow() const {
