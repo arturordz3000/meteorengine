@@ -6,7 +6,7 @@
 #include "Events/KeyPressedEvent.h"
 #include "Events/KeyReleasedEvent.h"
 #include "Events/WindowClosedEvent.h"
-#include "Graphics/Context.h"
+#include "Graphics/GraphicsFactory.h"
 
 namespace Meteor {
     unsigned int s_WindowCount = 0;
@@ -44,7 +44,8 @@ namespace Meteor {
     }
 
     void Window::Initialize() {
-        auto context = Context::CreateOpenGlContext(*this);
+        auto context = GraphicsFactory::CreateContext(*this);
+        auto renderer = GraphicsFactory::CreateRenderer(*this);
         this->m_NativeWindow = (GLFWwindow*)context->GetNativeWindow();
 
         glfwSetWindowUserPointer(m_NativeWindow, &m_EventCallback);

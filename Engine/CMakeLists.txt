@@ -17,8 +17,8 @@ add_library(Engine STATIC
     Events/KeyPressedEvent.h
     Events/KeyReleasedEvent.h
     Graphics/AbstractRenderer
-    Graphics/Context.h
-    Graphics/Context.cpp
+    Graphics/GraphicsFactory.h
+    Graphics/GraphicsFactory.cpp
     Graphics/ICamera.h
     Graphics/IContext.h
     Graphics/OpenGlRenderer.h

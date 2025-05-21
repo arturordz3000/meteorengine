@@ -10,4 +10,20 @@ namespace Meteor {
     void OpenGlRenderer::SetupOpenGl() {
         m_NativeWindow = (GLFWwindow*)this->m_Window.GetNativeWindow();
     }
+
+    void OpenGlRenderer::SetupShaders() {
+
+    }
+
+    void OpenGlRenderer::StartScene(ICamera& camera) {
+
+    }
+
+    void OpenGlRenderer::EndScene() {
+        
+    }
+
+    void OpenGlRenderer::Render() {
+
+    }
 }

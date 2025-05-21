@@ -9,7 +9,6 @@ namespace Meteor {
             OpenGlRenderer(IWindow& window) : m_Window(window) {} 
             void virtual Initialize() override;
             void virtual Render() override;
-            void virtual ResizeViewport(int width, int height) override;
             void virtual StartScene(ICamera& camera) override;
             void virtual EndScene() override;
         private:
