@@ -45,7 +45,6 @@ namespace Meteor {
 
     void Window::Initialize() {
         auto context = GraphicsFactory::CreateContext(*this);
-        auto renderer = GraphicsFactory::CreateRenderer(*this);
         this->m_NativeWindow = (GLFWwindow*)context->GetNativeWindow();
 
         glfwSetWindowUserPointer(m_NativeWindow, &m_EventCallback);

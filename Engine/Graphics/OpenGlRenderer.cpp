@@ -20,10 +20,10 @@ namespace Meteor {
     }
 
     void OpenGlRenderer::EndScene() {
-        
+
     }
 
-    void OpenGlRenderer::Render() {
-
+    void OpenGlRenderer::Render(AbstractRenderable& renderable) {
+        renderable.Render();
     }
 }
