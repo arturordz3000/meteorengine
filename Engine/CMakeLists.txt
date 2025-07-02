@@ -5,8 +5,8 @@ find_package(glfw3 REQUIRED)
 # Add the Engine library
 add_library(Engine STATIC
     Base/Declarations.h
-    Core/Application.cpp
-    Core/Application.h
+    Core/Game.cpp
+    Core/Game.h
     Core/IWindow.cpp
     Core/IWindow.h
     Core/Window.cpp

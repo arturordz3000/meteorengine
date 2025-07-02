@@ -4,7 +4,7 @@
 #include "Events/AbstractEvent.h"
 
 namespace Meteor {
-    class IApplicationLayer {
+    class IGameLayer {
         public:
             virtual std::string& GetName() const = 0;
             virtual void OnInitialize() = 0;
