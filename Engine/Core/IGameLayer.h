@@ -6,7 +6,7 @@
 namespace Meteor {
     class IGameLayer {
         public:
-            virtual std::string& GetName() const = 0;
+            virtual std::string GetName() const = 0;
             virtual void OnInitialize() = 0;
             virtual void OnFinalize() = 0;
             virtual void OnUpdate(float deltaTime) = 0;
