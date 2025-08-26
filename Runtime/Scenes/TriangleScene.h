@@ -4,10 +4,10 @@
 #include "Game/AbstractScene.h"
 
 namespace Meteor {
-    class CubeScene : public AbstractScene {
+    class TriangleScene : public AbstractScene {
         public:
-            CubeScene() {}
-            ~CubeScene() {}
+            TriangleScene() {}
+            ~TriangleScene() {}
             virtual std::string GetName() const override;
             virtual void OnInitialize() override;
             virtual void OnFinalize() override;
