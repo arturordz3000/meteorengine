@@ -6,7 +6,7 @@ namespace Meteor {
     }
 
     void TriangleScene::OnInitialize() {
-        Logger::GetInstance().Info("TriangleScene: OnInitialize()");
+
     }
 
     void TriangleScene::OnFinalize() {
@@ -14,7 +14,7 @@ namespace Meteor {
     }
 
     void TriangleScene::OnUpdate(float deltaTime) {
-        Logger::GetInstance().Info("TriangleScene: OnUpdate()");
+        this->renderer->Render(triangle);
     }
 
     void TriangleScene::OnEvent(const AbstractEvent& event) {

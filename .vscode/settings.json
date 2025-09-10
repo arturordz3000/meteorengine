@@ -57,6 +57,7 @@
         "stop_token": "cpp",
         "thread": "cpp",
         "cstring": "cpp",
-        "fstream": "cpp"
+        "fstream": "cpp",
+        "cassert": "cpp"
     }
 }

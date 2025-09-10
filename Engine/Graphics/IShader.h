@@ -2,6 +2,7 @@
 
 namespace Meteor {
     class IShader {
-        virtual void Use() = 0;
+        public:
+            virtual void Use() = 0;
     };
 }

@@ -10,6 +10,8 @@ add_library(Engine STATIC
     Graphics/GraphicsFactory.cpp
     Graphics/OpenGlRenderer.cpp
     Graphics/OpenGlContext.cpp
+    Graphics/OpenGlShaderCompiler.cpp
+    Graphics/OpenGlShader.cpp
     Logger/Logger.cpp
     Logger/ConsoleLogger.cpp
     Utils/TimeUtils.cpp
