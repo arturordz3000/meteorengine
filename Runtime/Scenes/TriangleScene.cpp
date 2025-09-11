@@ -6,7 +6,7 @@ namespace Meteor {
     }
 
     void TriangleScene::OnInitialize() {
-
+        this->triangle = std::make_unique<Triangle>();
     }
 
     void TriangleScene::OnFinalize() {
@@ -14,7 +14,9 @@ namespace Meteor {
     }
 
     void TriangleScene::OnUpdate(float deltaTime) {
-        this->renderer->Render(triangle);
+        this->renderer->StartScene();
+        this->renderer->Render(*triangle);
+        this->renderer->EndScene();
     }
 
     void TriangleScene::OnEvent(const AbstractEvent& event) {

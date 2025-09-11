@@ -7,6 +7,7 @@
 #include <GLFW/glfw3.h>
 #include "Graphics/AbstractRenderable.h"
 #include "Graphics/OpenGlShaderCompiler.h"
+#include "Logger/Logger.h"
 
 namespace Meteor {
     class Triangle : public AbstractRenderable {

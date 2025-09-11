@@ -24,6 +24,13 @@ namespace Meteor {
         }
 
         glfwMakeContextCurrent(this->m_NativeWindow);
+
+        GLenum err = glewInit();
+        if (err != GLEW_OK) {
+            std::cerr << "GLEW init failed: " << glewGetErrorString(err) << "\n";
+            return;
+        }
+
         glViewport(0, 0, width, height);
 
         glfwSetFramebufferSizeCallback(m_NativeWindow, [](GLFWwindow* window, int width, int height) {

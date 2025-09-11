@@ -1,6 +1,7 @@
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include "IShader.h"
+#include "Logger/Logger.h"
 
 namespace Meteor {
     class OpenGlShader : public IShader {

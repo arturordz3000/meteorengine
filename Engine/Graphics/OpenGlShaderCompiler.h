@@ -1,11 +1,13 @@
 #pragma once
 
+#include <iostream>
 #include <memory>
 #include <string>
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include "IShader.h"
 #include "OpenGlShader.h"
+#include "Logger/Logger.h"
 
 namespace Meteor {
     class OpenGlShaderCompiler {

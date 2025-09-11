@@ -3,6 +3,7 @@
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include "Graphics/IContext.h"
+#include "Logger/Logger.h"
 
 namespace Meteor {
     class OpenGlContext : public IContext {

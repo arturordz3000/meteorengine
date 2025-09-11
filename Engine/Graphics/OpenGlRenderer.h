@@ -11,7 +11,7 @@ namespace Meteor {
             OpenGlRenderer(IWindow& window) : m_Window(window) {} 
             void virtual Initialize() override;
             void virtual Render(AbstractRenderable &renderable) override;
-            void virtual StartScene(ICamera& camera) override;
+            void virtual StartScene() override;
             void virtual EndScene() override;
         private:
             void SetupOpenGl();

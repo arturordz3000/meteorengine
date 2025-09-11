@@ -7,11 +7,11 @@
 namespace Meteor {
     class TriangleScene : public AbstractScene {
         private:
-            Triangle triangle;
+            std::shared_ptr<Triangle> triangle;
 
         public:
-            TriangleScene() { OnInitialize(); }
-            ~TriangleScene() { OnFinalize(); }
+            TriangleScene() { }
+            ~TriangleScene() { }
             virtual std::string GetName() const override;
             virtual void OnInitialize() override;
             virtual void OnFinalize() override;

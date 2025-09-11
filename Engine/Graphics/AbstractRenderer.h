@@ -10,7 +10,7 @@ namespace Meteor {
         public:
             void virtual Initialize() = 0;
             void virtual Render(AbstractRenderable &renderable) = 0;
-            void virtual StartScene(ICamera& camera) = 0;
+            void virtual StartScene() = 0;
             void virtual EndScene() = 0;
         protected:
             int m_Width, m_Height;

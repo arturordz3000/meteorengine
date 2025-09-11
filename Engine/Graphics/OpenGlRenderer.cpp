@@ -16,12 +16,14 @@ namespace Meteor {
 
     }
 
-    void OpenGlRenderer::StartScene(ICamera& camera) {
-
+    void OpenGlRenderer::StartScene() {
+        glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+        glClear(GL_COLOR_BUFFER_BIT);
     }
 
     void OpenGlRenderer::EndScene() {
-
+        glfwSwapBuffers(m_NativeWindow);
+        glfwPollEvents();
     }
 
     void OpenGlRenderer::Render(AbstractRenderable& renderable) {

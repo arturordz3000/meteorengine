@@ -10,6 +10,7 @@ namespace Meteor {
 
     std::shared_ptr<AbstractRenderer> GraphicsFactory::CreateRenderer(IWindow& window) {
         auto openGlRenderer = std::make_shared<OpenGlRenderer>(window);
+        openGlRenderer->Initialize();
         return openGlRenderer;
     }
 }
