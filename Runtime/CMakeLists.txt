@@ -1,7 +1,8 @@
 add_executable(Runtime
     main.cpp
-    Scenes/TriangleScene.cpp
+    Scenes/TestScene.cpp
     Actors/Triangle.cpp
+    Actors/Rectangle.cpp
 )
 
 add_custom_command(

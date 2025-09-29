@@ -10,13 +10,15 @@
 #include "Logger/Logger.h"
 
 namespace Meteor {
-    class Triangle : public AbstractRenderable {
+    class Rectangle : public AbstractRenderable {
         private:
             std::vector<float> vertices;
+            std::vector<unsigned int> indices;
             unsigned int vertexBufferObject;
             unsigned int vertexArrayObject;
+            unsigned int elementBufferObject;
         public:
-            Triangle() { Initialize(); };
+            Rectangle() { Initialize(); };
             void Initialize();
             virtual void Render() override;
     };   
