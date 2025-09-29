@@ -7,6 +7,7 @@ add_library(Engine STATIC
     Core/Game.cpp
     Core/IWindow.cpp
     Core/Window.cpp
+    Core/File.cpp
     Graphics/GraphicsFactory.cpp
     Graphics/OpenGlRenderer.cpp
     Graphics/OpenGlContext.cpp
@@ -15,6 +16,7 @@ add_library(Engine STATIC
     Logger/Logger.cpp
     Logger/ConsoleLogger.cpp
     Utils/TimeUtils.cpp
+    Utils/FileSystemUtils.cpp
 )
 
 target_include_directories(Engine PUBLIC

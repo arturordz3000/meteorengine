@@ -47,7 +47,10 @@ namespace Meteor {
         return std::make_unique<OpenGlShader>(shaderProgram);
     }
 
-    std::unique_ptr<IShader> OpenGlShaderCompiler::CompileFromFile(const std::string& vertexShaderFile, const std::string& fragmentShaderFile) {
-        return NULL;
+    std::unique_ptr<IShader> OpenGlShaderCompiler::CompileFromFile(const std::string& vertexShaderFilePath, const std::string& fragmentShaderFilePath) {
+        std::shared_ptr<IFile> vertexShaderFile = std::make_shared<File>(vertexShaderFilePath);
+        std::shared_ptr<IFile> fragmentShaderFile = std::make_shared<File>(fragmentShaderFilePath);
+
+        return CompileFromSource(vertexShaderFile->GetContent(), fragmentShaderFile->GetContent());
     }
 }

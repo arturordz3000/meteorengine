@@ -11,17 +11,7 @@ namespace Meteor {
         glGenVertexArrays(1, &vertexArrayObject);
         glGenBuffers(1, &vertexBufferObject);
 
-        const std::string vs =
-            "#version 330 core\n"
-            "layout (location = 0) in vec3 aPos;\n"
-            "void main(){ gl_Position = vec4(aPos, 1.0); }\n";
-
-        const std::string fs =
-            "#version 330 core\n"
-            "out vec4 FragColor;\n"
-            "void main(){ FragColor = vec4(1.0, 0.5, 0.2, 1.0); }\n";
-
-        this->SetShader(OpenGlShaderCompiler::CompileFromSource(vs, fs));
+        this->SetShader(OpenGlShaderCompiler::CompileFromFile("Shaders/TriangleVS.glsl", "Shaders/TriangleFS.glsl"));
 
         glBindVertexArray(vertexArrayObject);
         glBindBuffer(GL_ARRAY_BUFFER, vertexBufferObject);

@@ -58,6 +58,8 @@
         "thread": "cpp",
         "cstring": "cpp",
         "fstream": "cpp",
-        "cassert": "cpp"
+        "cassert": "cpp",
+        "codecvt": "cpp",
+        "iomanip": "cpp"
     }
 }
