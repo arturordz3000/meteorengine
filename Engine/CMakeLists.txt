@@ -8,6 +8,7 @@ add_library(Engine STATIC
     Core/IWindow.cpp
     Core/Window.cpp
     Core/File.cpp
+    Graphics/AbstractRenderable3d.cpp
     Graphics/GraphicsFactory.cpp
     Graphics/OpenGlRenderer.cpp
     Graphics/OpenGlContext.cpp
