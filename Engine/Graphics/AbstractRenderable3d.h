@@ -26,6 +26,6 @@ namespace Meteor {
             glm::vec3 m_Translation;
 
         private:
-            void RecomputeModelMatrix();
+            void RebuildModelMatrix();
     };
 }
