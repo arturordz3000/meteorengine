@@ -1,6 +1,7 @@
 find_package(OpenGL REQUIRED)
-find_package(GLEW REQUIRED)
-find_package(glfw3 REQUIRED)
+find_package(GLEW REQUIRED CONFIG)
+find_package(glfw3 REQUIRED CONFIG)
+find_package(glm REQUIRED CONFIG)
 
 # Add the Engine library
 add_library(Engine STATIC
@@ -24,4 +25,4 @@ target_include_directories(Engine PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}
 )
 
-target_link_libraries(Engine OpenGL::GL GLEW::GLEW glfw)
+target_link_libraries(Engine OpenGL::GL GLEW::GLEW glfw glm::glm)

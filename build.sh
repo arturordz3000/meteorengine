@@ -14,6 +14,8 @@ echo "Installing dependencies..."
 conan install . --build=missing --output-folder=$BUILD_CONAN_DIR
 
 echo "Building project..."
-cmake -DCMAKE_TOOLCHAIN_FILE=build/conan/conan_toolchain.cmake -DCMAKE_BUILD_TYPE=release
-cmake -S . -B ./build 
-cmake --build ./build
+cmake -S . -B "$BUILD_DIR" \
+    -DCMAKE_TOOLCHAIN_FILE="$BUILD_CONAN_DIR/conan_toolchain.cmake" \
+    -DCMAKE_PREFIX_PATH="$PWD/$BUILD_CONAN_DIR" \
+    -DCMAKE_BUILD_TYPE=Release
+cmake --build "$BUILD_DIR"
