@@ -4,7 +4,7 @@ BUILD_DIR="build"
 BUILD_CONAN_DIR="$BUILD_DIR/conan"
 
 echo "Making sure build directory exists..."
-if [ ! -d "$BUILD_DIR"]; then
+if [ ! -d "$BUILD_DIR" ]; then
     echo "Build directory does not exist. Creating it now..."
     mkdir -p "$BUILD_DIR"
     echo "Build directory created!"
