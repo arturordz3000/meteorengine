@@ -19,7 +19,7 @@ namespace Meteor {
 
             // Resolve symlinks to get a canonical path
             char resolved[PATH_MAX];
-            if (realpath(buf.data(), resolved)) return std::filesystem::path(resolved);
+            if (realpath(buf.data(), resolved)) return std::filesystem::path(resolved).parent_path();
             return std::filesystem::path(buf.data()).parent_path();
 
         #elif defined(__linux__)
