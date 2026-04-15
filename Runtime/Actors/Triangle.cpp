@@ -20,6 +20,10 @@ namespace Meteor {
         glEnableVertexAttribArray(0);
     }
 
+    void Triangle::Update(float deltaTime) {
+        
+    }
+
     void Triangle::Render() {
         this->shader->Use();
         glBindVertexArray(vertexArrayObject);

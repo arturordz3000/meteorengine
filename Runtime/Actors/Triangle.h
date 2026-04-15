@@ -8,9 +8,10 @@
 #include "Graphics/AbstractRenderable.h"
 #include "Graphics/OpenGlShaderCompiler.h"
 #include "Logger/Logger.h"
+#include "Game/IGameObject.h"
 
 namespace Meteor {
-    class Triangle : public AbstractRenderable {
+    class Triangle : public AbstractRenderable, IGameObject {
         private:
             std::vector<float> vertices;
             unsigned int vertexBufferObject;
@@ -18,6 +19,7 @@ namespace Meteor {
         public:
             Triangle() { Initialize(); };
             void Initialize();
+            virtual void Update(float deltaTime) override;
             virtual void Render() override;
     };   
 }

@@ -32,6 +32,10 @@ namespace Meteor {
         glEnableVertexAttribArray(0);
     }
 
+    void Rectangle::Update(float deltaTime) {
+        
+    }
+
     void Rectangle::Render() {
         this->shader->Use();
         glBindVertexArray(vertexArrayObject);
